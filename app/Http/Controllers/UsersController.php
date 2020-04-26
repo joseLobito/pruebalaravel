@@ -7,6 +7,7 @@ use App\User;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\DB;
 
+
 class UsersController extends Controller
 {
     public function __construct()
@@ -48,7 +49,7 @@ class UsersController extends Controller
         //
         $campos = [
             'name' => 'required',
-            'email' => 'required',
+            'email' => 'required|between:3,64|email|unique:users',
             'password' => 'required',
             'rol' => 'required',
         ];
